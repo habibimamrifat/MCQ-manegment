@@ -4,19 +4,7 @@ import { TMCQ, TQuestionPaper } from "./questionPaper.interface";
 import { QuestionPaperModel } from "./questionPaper.model";
 import questionPaperUtil from "./questionPaper.util";
 
-// candidate
-export const getAllQuestionPaper = async () => {
-  const result = await QuestionPaperModel.find({ isDeleted: false }).select({
-    _id: 0,
-    isDeleted: 0,
-    __v: 0,
-    createdAt: 0,
-    updatedAt: 0,
-  });
-  return result;
-};
-
-export const getAllQuestionPapersForCandidate = async () => {
+export const getAllQuestionPapers = async () => {
   const result = await QuestionPaperModel.find({ isDeleted: false }).select({
     _id: 0,
     isDeleted: 0,
@@ -184,8 +172,7 @@ export const deleteQuestionPaper = async (qid: string) => {
 };
 
 const questionPaperService = {
-  getAllQuestionPaper,
-  getAllQuestionPapersForCandidate,
+  getAllQuestionPapers,
   getQuestionPapersOfExaminee,
   deleteQuestionPaper,
   updateQuestionPaper,

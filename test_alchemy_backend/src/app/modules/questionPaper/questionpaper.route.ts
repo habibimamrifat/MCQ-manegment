@@ -24,6 +24,11 @@ router.get(
   questionPaperController.getQuestionPapersOfExaminee
 );
 router.get(
+  "/getAllQuestionPapersForExaminer",
+  auth(userRole.examinee),
+  questionPaperController.getAllQuestionPapersForExaminer
+);
+router.get(
   "/getAllQuestionPapersForCandidate",
   auth(userRole.candidate),
   questionPaperController.getAllQuestionPapersForCandidate

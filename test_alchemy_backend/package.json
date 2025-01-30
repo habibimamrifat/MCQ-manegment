@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "npx tsc",
-    "start:prod": "node ./dist/app/server.js",
-    "start:dev": "ts-node-dev --respawn --transpile-only ./src/app/server.ts",
+    "build": "node init && npx tsc",
+    "start:prod": "node init && node ./dist/app/server.js",
+    "start:dev": "node init && ts-node-dev --respawn --transpile-only ./src/app/server.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/app/server.js\""
+    "dev": "node init && concurrently \"npx tsc --watch\" \"nodemon -q dist/app/server.js\""
   },
   "author": "",
   "license": "ISC",

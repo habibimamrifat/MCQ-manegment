@@ -3,7 +3,7 @@ import golbalRespnseHandler from "../../util/globalResponseHandeler";
 import questionPaperService from "./questionPaper.service";
 
 const getAllQuestionPaper = catchAsync(async (req, res) => {
-  const result = await questionPaperService.getAllQuestionPaper();
+  const result = await questionPaperService.getAllQuestionPapers();
   golbalRespnseHandler(res, {
     message: "all question papers retrieved successfully",
     success: true,
@@ -37,9 +37,19 @@ const getQuestionPapersOfExaminee = catchAsync(async (req, res) => {
 });
 
 const getAllQuestionPapersForCandidate = catchAsync(async (req, res) => {
-  const result = await questionPaperService.getAllQuestionPapersForCandidate();
+  const result = await questionPaperService.getAllQuestionPapers();
   golbalRespnseHandler(res, {
-    message: "single question paper retrieved successfully",
+    message: "all question paper retrieved successfully",
+    success: true,
+    statusCode: 200,
+    data: result,
+  });
+});
+
+const getAllQuestionPapersForExaminer = catchAsync(async (req, res) => {
+  const result = await questionPaperService.getAllQuestionPapers();
+  golbalRespnseHandler(res, {
+    message: "all question papers retrieved successfully",
     success: true,
     statusCode: 200,
     data: result,
@@ -126,6 +136,7 @@ const questionPaperController = {
   getAllQuestionPaper,
   getSingleQuestionPaper,
   getAllQuestionPapersForCandidate,
+  getAllQuestionPapersForExaminer,
   getQuestionPapersOfExaminee,
   createQuestionPaper,
   updateQuestionPaper,
